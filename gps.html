@@ -1,0 +1,33 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <pre id="demo"></pre>
+    </div>
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            let currentDate = new Date();
+            let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+            x.innerHTML += currentTime + " --- Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude + "\n";
+        }
+        getLocation();
+        setInterval(getLocation, 4000);
+    </script>
+</body>
+
+</html>
