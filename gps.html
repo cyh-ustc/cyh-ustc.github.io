@@ -1,4 +1,5 @@
 <html>
+
 <head>
 
 </head>
@@ -22,7 +23,7 @@
             let currentDate = new Date();
             let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
             x.innerHTML += currentTime + " --- Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude + "\n";
+                "<br>Longitude: " + position.coords.longitude + "<br>Accuracy: " + location.coords.accuracy + "\n";
         }
 
         function showError(error) {
