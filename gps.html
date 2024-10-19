@@ -1,5 +1,4 @@
 <html>
-
 <head>
 
 </head>
@@ -13,7 +12,7 @@
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPositionb, showError, {enableHighAccuracy: true});
+                navigator.geolocation.getCurrentPosition(showPosition, showError, { enableHighAccuracy: true });
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
@@ -24,6 +23,10 @@
             let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
             x.innerHTML += currentTime + " --- Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude + "\n";
+        }
+
+        function showError(error) {
+            x.innerHTML += currentTime + " --- Error: " + error + "\n";
         }
         getLocation();
         setInterval(getLocation, 4000);
